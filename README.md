@@ -59,3 +59,5 @@ Após criar o seu repositório na Nuvem (Site do Git) é necessário copiar um c
 `git push` -> Este comando serve para empurrar os seus arquivos no repositório local para o repositório em nuvem, toda primeira vez que fizer um push em um repositório é necessário que insira o comando `git push -u origin master`, isto serve para criar a branch master no repositório remoto
 
 Caso seja requisitado, é necessário inserir seu username e password da sua conta no GitHub
+
+`git add .` -> Este comando adiciona TODOS os arquivos dentro da pasta
