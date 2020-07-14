@@ -15,6 +15,12 @@ https://git-scm.com/download
 - [checkout,add,commit] Você adiciona novas funcionalidades ao seu projeto em produção
 - [branch-d] Você quer deletar a branch da nova funcionalidade, depois de aplicar em seu projeto
 
+- [clone] Você quer pegar um projeto já iniciado
+- [pull] Antes de enviar a resolução, precisamos atualizar o projeto local para versão mais recente disponível remotamente
+- [checkout--arquivo] Você precisa voltar um arquivo para um determinado momento da linha do tempo
+- [] Você precisa recuperar algum arquivo deletado
+
+
 # COMMANDS
 
 `git init` -> Faz com que a pasta em questão se torne um repositório Git
@@ -36,6 +42,8 @@ https://git-scm.com/download
 `git branch NomeDaRamificacao` -> este comando cria uma nova ramificação no seu projeto
 
 `git checkout NomeDaRamificacao` -> Durante a produção, você estará o tempo todo na 'master' ou seja no Mundo Principal do projeto, o checkout leva você tanto para o mundo paralelo (branch) como leva você de volta ao (master). Para voltar é digitar apenas checkout master
+
+`git checkout -b NomeDaRamificacao` -> Este comando ele cria a ramificação e já entra no repositório automaticamente
 
 PS: O 'git status' também te informa se você está no 'head' ou na 'branch' 
 
@@ -61,3 +69,17 @@ Após criar o seu repositório na Nuvem (Site do Git) é necessário copiar um c
 Caso seja requisitado, é necessário inserir seu username e password da sua conta no GitHub
 
 `git add .` -> Este comando adiciona TODOS os arquivos dentro da pasta
+
+`git clone https://link.com` -> Este comando clona um repositório já existente remotamente e cria a pasta com os arquivos no seu repositório local
+
+`git pull` -> Este comando pega a atualização mais recente disponível remotamente e atualiza a versão local do projeto
+
+Para voltar um arquivo para um determinado momento, primeiro é necessário que se tenha o conhecimento de QUAL dos históricos de linha do tempo pertencem ao momento que se deseja voltar. Para isso, utilizaremos o 'git log' para procurar a alteração necessária. 
+
+`git checkout serial-number -- arquivo.json` -> Este comando é responsável pela recuperação do determinado arquivo. No caso, inserimos para que ele entre na versão do projeto correspondente ao serial e recupere o arquivo especificado depois do '--'
+
+OBS: Lembrando, sempre antes de fazer um update, lembre-se de utilizar o `pull` para pegar as atualizações remotas mais recentes e depois realizar o `push`
+
+`git checkout -- arquivo.json` -> Este comando recuperará um arquivo que foi deletado, para isto, é necessário saber o nome do arquivo e da mesma forma que recuperamos uma versão anterior dele vamos apenas passar o '--' isto indica que não queremos uma linha temporal em específico, então, ele vai pegar a primeira que ele 'lembrar' e recuperar o arquivo especificado.
+
+`git checkout serial-number -- arquivo.json` -> Este comando recuperará um arquivo que foi deletado e já existiram versões posteriores com o arquivo já não existente. Ele entrará na linha do tempo especificada e vai recuperar o arquivo especificado
